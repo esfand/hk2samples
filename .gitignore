@@ -6,4 +6,6 @@
 *.ear
 
 .svn/
-hk2-examples/
+#hk2-examples/
+
+target/
