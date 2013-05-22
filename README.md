@@ -1,4 +1,5 @@
 hk2-examples
 ============
 
-HK2 Examples Liberated and Updated
+Examples distributed with HK2 Liberated and Updated
+as well as other samples available in the wild, updated.
