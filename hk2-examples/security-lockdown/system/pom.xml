@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -7,10 +6,11 @@
     <parent>
         <groupId>org.glassfish.hk2</groupId>
         <artifactId>security-lockdown-example</artifactId>
-        <version>2.1.93</version>
+        <version>2.1.95</version>
     </parent>
 
     <artifactId>security-lockdown-example-system</artifactId>
+    
     <name>Security Lockdown System</name>
     <description>The system code for the security lockdown example</description>
 
@@ -18,28 +18,22 @@
         <plugins>
             <plugin>
                 <groupId>org.glassfish.hk2</groupId>
-                <artifactId>osgiversion-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <useDefaultManifestFile>true</useDefaultManifestFile>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
+                <artifactId>hk2-inhabitant-generator</artifactId>
+                <version>${hk2.version}</version>
                 <executions>
                     <execution>
-                        <id>bundle-manifest</id>
-                        <phase>process-classes</phase>
                         <goals>
-                            <goal>manifest</goal>
+                            <goal>generate-inhabitants</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-inhabitants</id>
+                        <goals>
+                            <goal>generate-test-inhabitants</goal>
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>            
         </plugins>
     </build>
     
@@ -47,12 +41,12 @@
         <dependency>
             <groupId>org.glassfish.hk2</groupId>
             <artifactId>hk2-locator</artifactId>
-            <version>${project.version}</version>
+            <version>${hk2.version}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.hk2</groupId>
             <artifactId>hk2-api</artifactId>
-            <version>${project.version}</version>
+            <version>${hk2.version}</version>
         </dependency>
     </dependencies>
 
